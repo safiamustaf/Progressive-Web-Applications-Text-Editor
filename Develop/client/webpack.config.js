@@ -21,13 +21,13 @@ module.exports = () => {
     
       new HtmlWebpackPlugin({
         template: './index.html',
-        title: 'J-A-T-.E'
+        title: 'J-A-T-E'
       }),
       new InjectManifest({
         swSrc: './src-sw.js',
         swDest: 'src-sw.js',
       }),
-      
+
     ],
 
     module: {
