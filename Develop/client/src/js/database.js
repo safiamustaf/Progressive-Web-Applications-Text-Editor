@@ -25,7 +25,16 @@ export const putDb = async (content) =>{
 
 // TODO: Add logic for a method that gets all the content from the database
 export const getDb = async () => {
-
+  console.log('In getDb');
+  const pwaDb = await openDB('jate', 1);
+  const txn = pwaDb.transaction('jate', 'readonly');
+  const str = txn.objectStore('jate');
+  const req = str.get(1);
+  const res = await req;
+  res
+    ? console.log('data got from the database', res.value)
+    : console.log('data not found in the database');
+  return res?.value;
 } 
 
 initdb();
